@@ -44,9 +44,6 @@ A responsive multi-step form built with Next.js, React Hook Form, and Zod valida
    yarn install
    ```
 
-
-   ```
-
 ## Running the Project
 
 ### Development Mode
