@@ -96,10 +96,10 @@ export default function MultiStepForm() {
 
   if (isSubmitted) {
     return (
-      <div className="flex items-center justify-center min-h-screen bg-gray-100">
+      <div className="flex items-center justify-center min-h-screen bg-white dark:bg-gray-900 transition-colors duration-300">
         <div className="max-w-md mx-auto p-6 bg-white rounded-lg shadow-md">
         <h2 className="text-3xl lg:text-4xl font-bold mb-4 text-center text-green-500">Thank You!</h2>
-        <p className="text-center font-bold text-xl">Your form details has been submitted successfully.</p>
+        <p className="text-center font-bold text-xl dark:text-black">Your form details has been submitted successfully.</p>
       </div>
       </div>
     );
@@ -107,7 +107,7 @@ export default function MultiStepForm() {
 
   return (
    <section className="py-5">
-     <div className="max-w-full lg:max-w-2xl mx-auto px-5 py-10 bg-gray-100 dark:bg-gray-900  rounded-lg shadow-md dark:shadow-gray-800 dark:border-gray-700 dark:border-2">
+     <div className="max-w-full lg:max-w-2xl mx-auto px-5 py-10 bg-gray-100 dark:bg-gray-900  rounded-lg shadow-md dark:shadow-gray-800 dark:border-gray-700 dark:border-2 transition-colors duration-300">
       <h2 className="text-2xl font-bold mb-4 text-center">Give Your Details Here</h2>
 
       <div className="flex justify-between mb-8">

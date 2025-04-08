@@ -1,4 +1,5 @@
 "use client";
+import LoadingPage from "@/components/LoadingPage";
 import "./globals.css";
 import {
   QueryClient,
@@ -14,6 +15,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   const [darkMode, setDarkMode] = useState(false);
+    const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const savedTheme = localStorage.getItem("theme");
@@ -22,6 +24,14 @@ export default function RootLayout({
       document.documentElement.classList.add("dark");
     }
   }, []);
+
+    useEffect(() => {
+      const timer = setTimeout(() => {
+        setIsLoading(false);
+      }, 500);
+  
+      return () => clearTimeout(timer);
+    }, []);
 
   const toggleDarkMode = () => {
     const isDark = !darkMode;
@@ -33,6 +43,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body suppressHydrationWarning={true} className="bg-white dark:bg-gray-900 text-black dark:text-white transition-colors duration-300">
+        {
+                  isLoading ? ( 
+                        <div>
+                          <LoadingPage/>
+                        </div>
+                  ): (
         <QueryClientProvider client={queryClient}>
           <div className="flex justify-end p-4">
             <button
@@ -45,6 +61,7 @@ export default function RootLayout({
 
           {children}
         </QueryClientProvider>
+                  )}
       </body>
     </html>
   );
